@@ -59,3 +59,11 @@ Menu sources:
 ## Final invitation
 
 After the surprise video, she is asked whether she accepts the invitation. Yes shows a happy puppy sticker, thanks her for accepting, and says I love you. No shows a sad face and a gentle message. Both answers can be changed, and the saved/shared plan records the response.
+
+## Share the anniversary image
+
+The final plan includes only the selected food, destination, gift, date/time placeholder and invitation response. Birthday, coffee-guess, song and game answers are excluded. A legitimate Coffee & sweets food selection still stays in the plan.
+
+Share plan image prepares a PNG and uses the phone’s native file-sharing menu when available. Choose Messenger there if installed and offered. If file sharing is unsupported, or Messenger is not listed, use Save image and attach the PNG manually in Messenger. The website does not automatically send messages or guarantee an installed app appears in the share menu.
+
+The image is generated locally in the browser, with no external image service. A preview is available before sharing. Date and time are marked To be arranged together because no actual schedule has been supplied.
