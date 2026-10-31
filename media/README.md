@@ -5,7 +5,7 @@ Place your audio and video files in this folder, beside this README:
 | Choice | Exact filename | Path from index.html |
 | --- | --- | --- |
 | Listen to our song | sing.mp3 | media/sing.mp3 |
-| Recorded message inside the envelope | voice-message.mp3 | media/voice-message.mp3 |
+| Reserved voice recording (not used in the envelope) | voice-message.mp3 | media/voice-message.mp3 |
 | Final surprise video | surprise.mp4 | media/surprise.mp4 |
 
 Project layout:
@@ -28,7 +28,7 @@ If your audio uses M4A instead, add the actual M4A files here and update the AUD
 
 Match filename spelling and capitalization exactly. Files are not included yet; add your own. Keep this media folder next to index.html when copying or hosting the website, including a photo-personalized HTML export. Upload the files to GitHub in media/ when you are ready.
 
-After the fourth date question, the centered song player appears directly. There is no song question or choice card. She taps Play our song to start sing.mp3. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows your LETTER text and an optional voice-message.mp3 player. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final plan.
+After the fourth date question, the centered song player appears directly. There is no song question or choice card. She taps Play our song to start sing.mp3. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows the existing LETTER text followed by “Happy Anniversary, Be! ♡”. There is no playback button inside the envelope. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final plan.
 
 ## One-photo jigsaw game
 
