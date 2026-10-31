@@ -77,3 +77,9 @@ Save details image is visible immediately on the final plan. It starts a PNG dow
 ## Song progress
 
 The song player shows elapsed time, total duration and a seek slider. Drag or use the keyboard to seek to any part. Sliding to the end advances directly to the Bigg’s quiz, even while paused. The slider enables once audio metadata loads. Play/Pause and normal end-of-song progression still work.
+
+## Video compression
+
+The published surprise.mp4 was optimized from 54,726,235 bytes to 6,123,964 bytes (88.8% smaller). The full 59.234-second duration and audio remain. It uses H.264 video at 540 x 960, AAC stereo audio, and fast-start MP4 metadata before the video data.
+
+The original is saved locally at .video-backups/surprise-original.mp4. That folder is excluded from Git and Vercel uploads. FFmpeg verified the full decode, and mobile-size Chrome verified playback and the real ended event.
