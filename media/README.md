@@ -34,7 +34,7 @@ The visitor presses Play; audio/video does not autoplay. Closing the popup stops
 
 Add one whole photo at: **media/game/jigsaw.jpeg**.
 
-No manual cutting is needed. The page divides it into nine pieces automatically. Tap two pieces to swap them and rebuild the photo. The whole original photo is preserved; rectangular pictures get some padding inside the square puzzle.
+No manual cutting is needed. The page divides it into four pieces automatically. Tap two pieces to swap them and rebuild the photo. The whole original photo is preserved; rectangular pictures get some padding inside the square puzzle.
 
 Use an actual JPEG image, ideally around 1200 pixels on its longest side for quick phone loading. For a PNG or WebP, change JIGSAW_IMAGE near the top of the script in index.html to match the actual filename. Renaming a file extension does not convert an image.
 
