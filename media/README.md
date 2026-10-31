@@ -73,3 +73,7 @@ The image is generated locally in the browser, with no external image service. A
 The surprise player attempts playback when it opens and also has an explicit Play your surprise button. Its continuation button, backdrop and Escape cannot advance before a real played video reaches its ended state. Failed or blocked playback leaves the player visible with retry instructions.
 
 Save details image is visible immediately on the final plan. It starts a PNG download and shows a full-size picture with a Download PNG link. On phones or in-app browsers that do not download automatically, press and hold the picture and choose Save Image/Add to Photos, or open the site in Safari/Chrome. Image creation does not require roundRect, toBlob, or the File constructor.
+
+## Song progress
+
+The song player shows elapsed time, total duration and a seek slider. Drag or use the keyboard to seek to any part. Sliding to the end advances directly to the Bigg’s quiz, even while paused. The slider enables once audio metadata loads. Play/Pause and normal end-of-song progression still work.
