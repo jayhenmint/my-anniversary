@@ -19,7 +19,7 @@ my-anniversary/
     voice-message.mp3
     surprise.mp4
     game/
-      jigsaw.jpg
+      jigsaw.jpeg
 ```
 
 Use actual MP3 audio files. Export the video as MP4 with H.264 video and AAC audio for broad mobile compatibility. Renaming an extension does not convert a recording.
@@ -32,10 +32,10 @@ The visitor presses Play; audio/video does not autoplay. Closing the popup stops
 
 ## One-photo jigsaw game
 
-Add one whole photo at: **media/game/jigsaw.jpg**.
+Add one whole photo at: **media/game/jigsaw.jpeg**.
 
 No manual cutting is needed. The page divides it into nine pieces automatically. Tap two pieces to swap them and rebuild the photo. The whole original photo is preserved; rectangular pictures get some padding inside the square puzzle.
 
-Use an actual JPG image, ideally around 1200 pixels on its longest side for quick phone loading. For a PNG or WebP, change JIGSAW_IMAGE near the top of the script in index.html to match the actual filename. Renaming a file extension does not convert an image.
+Use an actual JPEG image, ideally around 1200 pixels on its longest side for quick phone loading. For a PNG or WebP, change JIGSAW_IMAGE near the top of the script in index.html to match the actual filename. Renaming a file extension does not convert an image.
 
 The game includes a full-photo preview and optional number hints. Until the photo is added, the numbered puzzle stays playable. The old photo-1.jpg through photo-4.jpg files are no longer used; existing files have been left alone.
