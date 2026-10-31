@@ -58,7 +58,7 @@ Menu sources:
 
 ## Final invitation
 
-After the surprise video, she is asked whether she accepts the invitation. Yes shows a happy puppy sticker, thanks her for accepting, and says I love you. No shows a sad face and a gentle message. Both answers can be changed, and the saved/shared plan records the response.
+After the surprise video, she is asked whether she accepts the invitation. Yes shows a happy puppy sticker, thanks her for accepting, and says I love you. No shows a sad face and a gentle message. Both answers open the final plan and its Save/Share buttons immediately. The plan records the response, and Change my invitation answer lets her revise it.
 
 ## Share the anniversary image
 
@@ -67,3 +67,9 @@ The final plan includes only the selected food, destination, gift, date/time pla
 Share plan image prepares a PNG and uses the phone’s native file-sharing menu when available. Choose Messenger there if installed and offered. If file sharing is unsupported, or Messenger is not listed, use Save image and attach the PNG manually in Messenger. The website does not automatically send messages or guarantee an installed app appears in the share menu.
 
 The image is generated locally in the browser, with no external image service. A preview is available before sharing. Date and time are marked To be arranged together because no actual schedule has been supplied.
+
+## Video and image-saving compatibility
+
+The surprise player attempts playback when it opens and also has an explicit Play your surprise button. Its continuation button, backdrop and Escape cannot advance before a real played video reaches its ended state. Failed or blocked playback leaves the player visible with retry instructions.
+
+Save details image is visible immediately on the final plan. It starts a PNG download and shows a full-size picture with a Download PNG link. On phones or in-app browsers that do not download automatically, press and hold the picture and choose Save Image/Add to Photos, or open the site in Safari/Chrome. Image creation does not require roundRect, toBlob, or the File constructor.
