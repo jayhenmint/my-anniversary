@@ -28,7 +28,7 @@ If your audio uses M4A instead, add the actual M4A files here and update the AUD
 
 Match filename spelling and capitalization exactly. Files are not included yet; add your own. Keep this media folder next to index.html when copying or hosting the website, including a photo-personalized HTML export. Upload the files to GitHub in media/ when you are ready.
 
-After the fourth date question, the centered song player appears directly. There is no song question or choice card. She taps Play our song to start sing.mp3. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows the existing LETTER text followed by “Happy Anniversary, Be! ♡”. There is no playback button inside the envelope. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final plan.
+After the fourth date question, the centered song player appears directly. There is no song question or choice card. She taps Play our song to start sing.mp3. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows the existing LETTER text followed by “Happy Anniversary, Be! ♡”. There is no playback button inside the envelope. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final invitation question.
 
 ## One-photo jigsaw game
 
@@ -55,3 +55,7 @@ The correct order is the owner-provided pizza bread + chicken + spaghetti combin
 Menu sources:
 - https://biggs-diner.myshopify.com/collections/classic-meals
 - https://biggs-diner.myshopify.com/collections/burgers-sandwiches
+
+## Final invitation
+
+After the surprise video, she is asked whether she accepts the invitation. Yes shows a happy puppy sticker, thanks her for accepting, and says I love you. No shows a sad face and a gentle message. Both answers can be changed, and the saved/shared plan records the response.
