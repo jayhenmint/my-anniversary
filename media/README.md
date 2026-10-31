@@ -19,10 +19,7 @@ my-anniversary/
     voice-message.mp3
     surprise.mp4
     game/
-      photo-1.jpg
-      photo-2.jpg
-      photo-3.jpg
-      photo-4.jpg
+      jigsaw.jpg
 ```
 
 Use actual MP3 audio files. Export the video as MP4 with H.264 video and AAC audio for broad mobile compatibility. Renaming an extension does not convert a recording.
@@ -33,17 +30,12 @@ Match filename spelling and capitalization exactly. Files are not included yet; 
 
 The visitor presses Play; audio/video does not autoplay. Closing the popup stops playback. The Letter option remains separate; Surprise me always opens your video.
 
-## Photo matching game
+## One-photo jigsaw game
 
-Add four different pictures to the game/ subfolder, with these exact names:
+Add one whole photo at: **media/game/jigsaw.jpg**.
 
-| Photo | Path from index.html |
-| --- | --- |
-| 1 | media/game/photo-1.jpg |
-| 2 | media/game/photo-2.jpg |
-| 3 | media/game/photo-3.jpg |
-| 4 | media/game/photo-4.jpg |
+No manual cutting is needed. The page divides it into nine pieces automatically. Tap two pieces to swap them and rebuild the photo. The whole original photo is preserved; rectangular pictures get some padding inside the square puzzle.
 
-Each photo automatically appears on two shuffled cards. Match all four pairs to continue. Until photos are added, numbered cards keep the game playable. The game has no photo-upload control.
+Use an actual JPG image, ideally around 1200 pixels on its longest side for quick phone loading. For a PNG or WebP, change JIGSAW_IMAGE near the top of the script in index.html to match the actual filename. Renaming a file extension does not convert an image.
 
-Use actual JPG files; renaming PNG or HEIC files to .jpg does not convert them. Square images work best; other shapes crop to fill the cards. For PNG/WebP files, change the corresponding GAME_PHOTOS paths in index.html. Keep images reasonably small for quick phone loading (around 800 x 800 pixels is plenty).
+The game includes a full-photo preview and optional number hints. Until the photo is added, the numbered puzzle stays playable. The old photo-1.jpg through photo-4.jpg files are no longer used; existing files have been left alone.

@@ -1,10 +1,9 @@
-# Game photos
+# Jigsaw photo
 
-Add four different JPG photos here:
+Add ONE whole JPG photo here with the exact name:
 
-- photo-1.jpg
-- photo-2.jpg
-- photo-3.jpg
-- photo-4.jpg
+**jigsaw.jpg**
 
-Each is used twice in the matching game. See ../README.md for all media paths.
+Full path from index.html: media/game/jigsaw.jpg
+
+The website divides it into nine pieces. No manual cutting or upload control is needed. All of your photo stays visible; portrait/landscape images have padding. See ../README.md for more information.
