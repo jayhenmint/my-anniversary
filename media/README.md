@@ -28,7 +28,7 @@ If your audio uses M4A instead, add the actual M4A files here and update the AUD
 
 Match filename spelling and capitalization exactly. Files are not included yet; add your own. Keep this media folder next to index.html when copying or hosting the website, including a photo-personalized HTML export. Upload the files to GitHub in media/ when you are ready.
 
-The ending has one required Listen to our song button, with no Yes/No choice. It starts sing.mp3 from that tap. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows your LETTER text and an optional voice-message.mp3 player. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final plan.
+After the fourth date question, the centered song player appears directly. There is no song question or choice card. She taps Play our song to start sing.mp3. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows your LETTER text and an optional voice-message.mp3 player. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final plan.
 
 ## One-photo jigsaw game
 
