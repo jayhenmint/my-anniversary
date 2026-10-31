@@ -83,6 +83,7 @@ header{justify-content:center;padding-top:28px;padding-bottom:24px}.brand{font-s
 @media(prefers-reduced-motion:reduce){.intro>.invitation-button{animation:none}}
 
 .drink-art{width:84px;height:95px;object-fit:contain;flex-shrink:0;border-radius:15px}.choice input:disabled+label{cursor:default}.drink-pop-art{width:140px;height:158px;display:block;margin:auto;border-radius:20px}.auto-choice-note{font-family:Georgia,serif;font-style:italic;color:var(--muted);font-size:14px;text-align:right;line-height:1.5}.modal-actions:has(button[hidden]){display:none}@media(max-width:480px){.drink-art{width:75px;height:85px}.choice label:has(.drink-art){min-height:120px}.auto-choice-note{font-size:12px;max-width:175px}.nav{justify-content:space-between}.drink-pop-art{width:125px;height:140px}}
+.letter-voice{margin-top:15px;width:100%;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.4}.letter .media-note{font-family:Arial,Helvetica,sans-serif;font-size:12px!important}.modal-ok:disabled{opacity:.45}
 </style>
 </head>
 <body>
@@ -114,7 +115,7 @@ const UNLOCK_DAY = 15;
 const AUDIO = {sing:'media/sing.mp3', voice:'media/voice-message.mp3'};
 const SURPRISE_VIDEO = 'media/surprise.mp4';
 // One whole photo, automatically divided into a 2 x 2 puzzle.
-const JIGSAW_IMAGE = 'media/game/jigsaw.jpeg';
+const JIGSAW_IMAGE = 'media/game/jigsaw.jpg';
 const PUZZLE_SIZE = 2;
 const PUZZLE_COUNT = PUZZLE_SIZE * PUZZLE_SIZE;
 // The letter she reads when the envelope opens. One line per paragraph.
@@ -140,11 +141,10 @@ const questions = [
  {icon:'🎁',title:'A little surprise',desc:'Something picked just for you.',reaction:'A little mystery, a whole lot of love. ♡',pop:'Your surprise is on its way. No peeking until it arrives.'},
  {icon:'💫',title:'A tiny keepsake',desc:'A charm or bracelet to remember us.',reaction:'A little reminder of a very big love. ♡',pop:'Your keepsake is on its way. It will be delivered to you with love.'},
  {icon:'🧸',title:'A cuddle companion',desc:'A soft plushie to keep close.',reaction:'A little hug for when I’m not there. ♡',pop:'Your cuddle companion is on its way. Get ready for a soft landing.'}]},
- {kicker:'05 / From me to you',title:'Would you like to <em>hear me sing</em> or get a message?',description:'Be kind about the singing. I’m trying my best.',label:'From me to you',popup:'media',options:[
- {icon:'🎤',title:'Hear me sing',desc:'A tape, just for you. Off key or not.',reaction:'Brave of me. Kind of you. ♡',media:'sing'},
- {icon:'🎧',title:'A voice message',desc:'Recorded, with a few retakes.',reaction:'You can replay it whenever you miss me. ♡',media:'voice'},
- {icon:'💌',title:'A letter',desc:'An envelope, opened just for you.',reaction:'I meant every single word. ♡',media:'letter'},
- {icon:'🎁',title:'Surprise me',desc:'A little video, just for you.',reaction:'One more little surprise, just for you. ♡',media:'video'}]}
+ {kicker:'05 / A song, just for you',title:'Do you want to <em>hear me sing?</em>',description:'A little song, then a message and one last surprise.',label:'Your song choice',popup:'ending',options:[
+ {icon:'🎤',title:'Yes, sing for me',desc:'Pressing yes is an act of love. Be kind. ♡',reaction:'One little song, just for you. ♡',sing:true},
+ {icon:'💌',title:'No, take me to your message',desc:'Straight to the words I wrote for you.',reaction:'No worries, love. This message is all yours. ♡',sing:false}]}
+
 ];
 const GAME_AFTER = 2; // the game shows after this question (0 = first), before the next one
 const $=id=>document.getElementById(id);
@@ -158,12 +158,24 @@ function enterInvitation(){if(pendingPlan){answers.splice(0,answers.length,...pe
 function drinkArt(kind){const scenes={cola:'<path d="M57 28h36v21l9 17v78q0 13-13 13H61q-13 0-13-13V66l9-17z" fill="#5a2c28"/><rect x="55" y="20" width="40" height="13" rx="4" fill="#b63e58"/><path d="M48 85h54v43H48z" fill="#d75e71"/><path d="M58 106q17-18 34 0-17 18-34 0" fill="#fff4e3"/><path d="M59 58v19m0 59v9" stroke="#ab7462" stroke-width="5" stroke-linecap="round"/><g fill="#d5948c"><circle cx="113" cy="54" r="5"/><circle cx="36" cy="80" r="4"/><circle cx="111" cy="133" r="3"/></g>',mango:'<path d="M44 56h66l-8 96q-26 14-50 0z" fill="#efb548"/><path d="M47 78h60l-6 70q-25 12-48 0z" fill="#f6c752"/><path d="M90 82l12-54h20" fill="none" stroke="#b75d72" stroke-width="6" stroke-linecap="round"/><g fill="#fff4d2" opacity=".7"><rect x="58" y="67" width="17" height="18" rx="4" transform="rotate(12 66 76)"/><rect x="77" y="99" width="16" height="17" rx="4" transform="rotate(-13 85 107)"/></g><ellipse cx="48" cy="136" rx="18" ry="26" fill="#e9a238" transform="rotate(-30 48 136)"/><path d="M47 113q-8-28 17-22-3 22-17 22" fill="#7b9c64"/>',coffee:'<ellipse cx="76" cy="146" rx="53" ry="9" fill="#dcc0ad"/><path d="M104 77h12q25 0 16 28-6 14-26 11" fill="none" stroke="#c87d83" stroke-width="10"/><path d="M31 69h78v43q0 32-39 32t-39-32z" fill="#e4a1a5"/><ellipse cx="70" cy="69" rx="39" ry="12" fill="#fff0dd"/><ellipse cx="70" cy="69" rx="31" ry="8" fill="#855943"/><path d="M70 65c-8-11-20 1 0 12 20-11 8-23 0-12" fill="#fff0dd"/><g fill="none" stroke="#bc8e86" stroke-width="3" stroke-linecap="round"><path d="M51 44q-10-10 0-20m22 20q-10-10 0-20m22 20q-10-10 0-20"/></g>'};return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180"><rect width="160" height="180" rx="22" fill="#f8e8df"/><circle cx="80" cy="88" r="65" fill="#fff6e8"/>'+scenes[kind]+'</svg>');}
 let answerTimer=null,questionVersion=0,answerPending=false,afterModal=null;
 function cancelAutoAdvance(){clearTimeout(answerTimer);answerTimer=null;afterModal=null;answerPending=false;questionVersion++;}
+// The ending is a sequence: optional song, envelope message, surprise video, plan.
+let endingActive=false,endingStage=null,endingComplete=false,endingSerial=0;
+function startEnding(sing){endingSerial++;endingActive=true;endingComplete=false;showEndingStage(sing?'sing':'letter');}
+function showEndingStage(stage){
+ endingStage=stage;const serial=endingSerial;openPopup({popup:'media'},{media:stage});
+ const nextStage=stage==='sing'?'letter':stage==='letter'?'video':null;
+ $('modal-ok').textContent=stage==='sing'?'Read my message 💌':stage==='letter'?'Open your surprise ↗':'See our anniversary plan ♡';
+ $('modal-ok').disabled=stage==='letter';
+ if(stage==='letter')$('modal-text').textContent='Tap the envelope. I have something to tell you.';
+ afterModal=()=>{if(serial!==endingSerial)return;if(nextStage){showEndingStage(nextStage);}else{endingActive=false;endingStage=null;endingComplete=true;modalScrollY=0;renderResult();}};
+ if(stage==='sing'){const play=$('modal-stage').querySelector('.media-row');if(play)play.click();}
+}
 function advanceAnswer(){if(answers[step]===null)return;if(step<questions.length-1){if(step===GAME_AFTER&&!gamesFinished){show('play');focusTitle('play-title');return;}step++;renderQuestion();}else renderResult();}
-function chooseAnswer(q,o,i){if(answerPending)return;answerPending=true;const version=questionVersion;answers[step]=i;updateSelection();document.querySelectorAll('#choices input').forEach(el=>el.disabled=true);if(q.popup){openPopup(q,o);if(q.popup==='media'){modalScrollY=0;advanceAnswer();return;}afterModal=()=>{if(version===questionVersion)advanceAnswer();};answerTimer=setTimeout(()=>closeModal(),q.popup==='drink'?3600:q.popup==='delivery'?2800:2400);}else{answerTimer=setTimeout(()=>{if(version===questionVersion)advanceAnswer();},1600);}}
+function chooseAnswer(q,o,i){if(answerPending)return;answerPending=true;const version=questionVersion;answers[step]=i;updateSelection();document.querySelectorAll('#choices input').forEach(el=>el.disabled=true);if(q.popup==='ending'){startEnding(o.sing);return;}if(q.popup){openPopup(q,o);if(q.popup==='media'){modalScrollY=0;advanceAnswer();return;}afterModal=()=>{if(version===questionVersion)advanceAnswer();};answerTimer=setTimeout(()=>closeModal(),q.popup==='drink'?3600:q.popup==='delivery'?2800:2400);}else{answerTimer=setTimeout(()=>{if(version===questionVersion)advanceAnswer();},1600);}}
 function renderQuestion(){if(!unlocked||!invitationOpened)return;cancelAutoAdvance();show('quiz');const q=questions[step];$('step-label').textContent='Little choice '+(step+1)+' of '+questions.length;$('progress-fill').style.width=((step+1)/questions.length*100)+'%';document.querySelector('.progress').setAttribute('aria-valuemax',questions.length);document.querySelector('.progress').setAttribute('aria-valuenow',step+1);$('question-kicker').textContent=q.kicker;$('question-title').innerHTML=q.title;$('question-description').textContent=q.description;$('choice-legend').textContent=q.label;$('choices').replaceChildren();q.options.forEach((o,i)=>{const wrap=document.createElement('div');wrap.className='choice';const input=document.createElement('input');input.type='radio';input.name='answer';input.id='option-'+i;input.value=i;input.checked=answers[step]===i;const label=document.createElement('label');label.htmlFor=input.id;label.innerHTML=(o.art?'<img class="drink-art" src="'+drinkArt(o.art)+'" alt="'+o.title+' illustration">':'<span class="choice-icon" aria-hidden="true">'+o.icon+'</span>')+'<span><span class="choice-title">'+o.title+'</span><span class="choice-desc">'+o.desc+'</span></span><span class="check" aria-hidden="true">✓</span>';input.addEventListener('click',()=>chooseAnswer(q,o,i));wrap.append(input,label);$('choices').append(wrap);});updateSelection();focusTitle('question-title');}
 function updateSelection(){$('selection-note').textContent=answers[step]===null?'Pick whatever makes your heart happy.':questions[step].options[answers[step]].reaction;}
 function summaryText(){return 'OUR ANNIVERSARY PLAN ♡\n\n'+questions.map((q,i)=>q.label+': '+q.options[answers[i]].title+' — '+q.options[answers[i]].desc).join('\n')+'\n\nMy favorite part? I get to do it all with you.';}
-function renderResult(celebrate=true){if(!unlocked||!invitationOpened||!gamesFinished||answers.some((a,i)=>!Number.isInteger(a)||!questions[i].options[a]))return;show('result');$('summary').replaceChildren();questions.forEach((q,i)=>{const o=q.options[answers[i]],row=document.createElement('div');row.className='summary-row';row.innerHTML='<span class="choice-icon" aria-hidden="true">'+o.icon+'</span><div><div class="summary-label">'+q.label+'</div><div class="summary-value">'+o.title+'</div><div class="choice-desc">'+o.desc+'</div></div>';$('summary').append(row);});$('status').textContent='';focusTitle('result-title');if(celebrate&&!matchMedia('(prefers-reduced-motion: reduce)').matches){for(let i=0;i<25;i++){const heart=document.createElement('span');heart.className='confetti';heart.textContent=['♡','✧','♥'][i%3];heart.style.left=Math.random()*100+'%';heart.style.color=['#ad405b','#d9a36e','#d89baf'][i%3];heart.style.animationDelay=Math.random()*.8+'s';document.body.append(heart);setTimeout(()=>heart.remove(),4600);}}}
+function renderResult(celebrate=true){if(!unlocked||!invitationOpened||!gamesFinished||!endingComplete||answers.some((a,i)=>!Number.isInteger(a)||!questions[i].options[a]))return;show('result');$('summary').replaceChildren();questions.forEach((q,i)=>{const o=q.options[answers[i]],row=document.createElement('div');row.className='summary-row';row.innerHTML='<span class="choice-icon" aria-hidden="true">'+o.icon+'</span><div><div class="summary-label">'+q.label+'</div><div class="summary-value">'+o.title+'</div><div class="choice-desc">'+o.desc+'</div></div>';$('summary').append(row);});$('status').textContent='';focusTitle('result-title');if(celebrate&&!matchMedia('(prefers-reduced-motion: reduce)').matches){for(let i=0;i<25;i++){const heart=document.createElement('span');heart.className='confetti';heart.textContent=['♡','✧','♥'][i%3];heart.style.left=Math.random()*100+'%';heart.style.color=['#ad405b','#d9a36e','#d89baf'][i%3];heart.style.animationDelay=Math.random()*.8+'s';document.body.append(heart);setTimeout(()=>heart.remove(),4600);}}}
 $('start').addEventListener('click',()=>{if(!unlocked)return;invitationOpened=true;step=0;renderQuestion();});$('back').addEventListener('click',()=>{cancelAutoAdvance();if(step>0){step--;renderQuestion();}else{show('welcome');$('start').focus();}});$('edit').addEventListener('click',()=>{step=0;renderQuestion();});
 function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
 $('save').addEventListener('click',()=>{download(new Blob([summaryText()],{type:'text/plain;charset=utf-8'}),'our-anniversary-plan.txt');$('status').textContent='Your keepsake is ready to save. ♡';});
@@ -202,12 +214,12 @@ const LOCK_SVG='<svg class="lock" viewBox="0 0 64 72" aria-hidden="true"><path c
 let modalAudio=null,modalVideo=null,modalTimer=0,lastFocus=null,modalScrollY=0;
 function mk(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
 function stopMedia(){if(modalAudio){modalAudio.pause();modalAudio=null;}if(modalVideo){modalVideo.pause();modalVideo.removeAttribute('src');modalVideo.load();modalVideo=null;}clearTimeout(modalTimer);}
-function closeModal(){clearTimeout(answerTimer);answerTimer=null;const continueChoice=afterModal;afterModal=null;stopMedia();$('modal').hidden=true;document.body.classList.remove('modal-open');document.body.style.position='';document.body.style.top='';document.body.style.width='';document.querySelectorAll('header,main,footer').forEach(e=>e.inert=false);window.scrollTo({top:modalScrollY,behavior:'instant'});$('modal-stage').replaceChildren();if(continueChoice)continueChoice();else if(lastFocus&&lastFocus.isConnected)lastFocus.focus({preventScroll:true});else if(!$('result').hidden)focusTitle('result-title');}
+function closeModal(){if(endingActive&&endingStage==='letter'&&$('modal-ok').disabled){$('modal-stage').querySelector('.envelope')?.click();return;}clearTimeout(answerTimer);answerTimer=null;const continueChoice=afterModal;afterModal=null;stopMedia();$('modal').hidden=true;document.body.classList.remove('modal-open');document.body.style.position='';document.body.style.top='';document.body.style.width='';document.querySelectorAll('header,main,footer').forEach(e=>e.inert=false);window.scrollTo({top:modalScrollY,behavior:'instant'});$('modal-stage').replaceChildren();if(continueChoice)continueChoice();else if(lastFocus&&lastFocus.isConnected)lastFocus.focus({preventScroll:true});else if(!$('result').hidden)focusTitle('result-title');}
 function wireAudio(src,btn,note,onPlay,onStop,onTime){
  const say=t=>{note.textContent=t;};
  btn.addEventListener('click',()=>{
   const audioSrc=typeof src==='function'?src():src;if(!audioSrc){say('Your recording is being prepared. Come back soon. ♡');return;}
-  if(!modalAudio){const a=new Audio(audioSrc);modalAudio=a;a.addEventListener('ended',()=>{onStop();say('');});a.addEventListener('error',()=>{onStop();modalAudio=null;say('This recording is not available yet. Please try again later. ♡');});a.addEventListener('timeupdate',()=>{if(onTime)onTime(a);});}
+  if(!modalAudio){const a=new Audio(audioSrc);modalAudio=a;a.addEventListener('ended',()=>{onStop();say('');if(endingActive&&endingStage==='sing')closeModal();});a.addEventListener('error',()=>{onStop();modalAudio=null;say('This recording is not available yet. Please try again later. ♡');});a.addEventListener('timeupdate',()=>{if(onTime)onTime(a);});}
   if(modalAudio.paused){modalAudio.play().then(()=>{onPlay();say('');}).catch(()=>{onStop();say('This recording is not available yet. Please try again later. ♡');});}
   else{modalAudio.pause();onStop();}
  });
@@ -215,7 +227,7 @@ function wireAudio(src,btn,note,onPlay,onStop,onTime){
 function openPopup(q,o){
  if(!q.popup)return;
  stopMedia();
- const stage=$('modal-stage');stage.replaceChildren();
+ const stage=$('modal-stage');stage.replaceChildren();$('modal-ok').disabled=false;
  let title=q.popTitle||'',text=o.pop||'',ok='Okay ♡';
  if(q.popup==='drink'){
   title=o.correct?'You got it right!':'A sweet little guess';stage.append(mk('div','drink-feedback','<img class="drink-pop-art" src="'+drinkArt(o.art)+'" alt="'+o.title+' illustration">'));
@@ -247,14 +259,16 @@ function openPopup(q,o){
    title='A little surprise for you';text='Press play. This one is just for you.';
    const video=document.createElement('video');video.className='surprise-video';video.controls=true;video.playsInline=true;video.preload='metadata';video.tabIndex=0;video.setAttribute('aria-label','Your surprise video');
    video.addEventListener('error',()=>{note.textContent='Your surprise video is not available yet. Please try again later. ♡';});
-   video.src=SURPRISE_VIDEO;modalVideo=video;stage.append(video,note);
+   video.addEventListener('ended',()=>{if(endingActive&&endingStage==='video')closeModal();});video.src=SURPRISE_VIDEO;modalVideo=video;stage.append(video,note);
   }else{
    title='A letter for you';text=lead+'Tap the envelope to open it.';
    const env=mk('button','envelope','<span class="env-back"></span><span class="env-paper"></span><span class="env-front"></span><span class="env-flap"></span>');
    env.type='button';env.setAttribute('aria-label','Open the envelope');env.setAttribute('aria-expanded','false');
    const paper=mk('div','letter');paper.hidden=true;
    LETTER.forEach(line=>{const p=document.createElement('p');p.textContent=line;paper.append(p);});
-   env.addEventListener('click',()=>{if(env.classList.contains('open'))return;env.classList.add('open');env.setAttribute('aria-expanded','true');env.setAttribute('aria-label','Envelope opened');modalTimer=setTimeout(()=>{paper.hidden=false;},800);});
+   const voiceButton=mk('button','primary secondary letter-voice','▶ Play my message');voiceButton.type='button';
+   wireAudio(()=>AUDIO.voice,voiceButton,note,()=>{voiceButton.textContent='❚❚ Pause my message';},()=>{voiceButton.textContent='▶ Play my message';});paper.append(voiceButton,note);
+   env.addEventListener('click',()=>{if(env.classList.contains('open'))return;env.classList.add('open');env.setAttribute('aria-expanded','true');env.setAttribute('aria-label','Envelope opened');modalTimer=setTimeout(()=>{paper.hidden=false;if(endingActive&&endingStage==='letter')$('modal-ok').disabled=false;},800);});
    stage.append(env,paper);
   }
  }
