@@ -4,7 +4,7 @@ Place your audio and video files in this folder, beside this README:
 
 | Choice | Exact filename | Path from index.html |
 | --- | --- | --- |
-| Yes, sing for me | sing.mp3 | media/sing.mp3 |
+| Listen to our song | sing.mp3 | media/sing.mp3 |
 | Recorded message inside the envelope | voice-message.mp3 | media/voice-message.mp3 |
 | Final surprise video | surprise.mp4 | media/surprise.mp4 |
 
@@ -28,7 +28,7 @@ If your audio uses M4A instead, add the actual M4A files here and update the AUD
 
 Match filename spelling and capitalization exactly. Files are not included yet; add your own. Keep this media folder next to index.html when copying or hosting the website, including a photo-personalized HTML export. Upload the files to GitHub in media/ when you are ready.
 
-The final question asks whether she wants to hear you sing. Yes starts sing.mp3 from that tap; No goes straight to the envelope. The envelope shows your LETTER text and has an optional Play my message button for voice-message.mp3. After opening the envelope, Open your surprise shows surprise.mp4. The song ending automatically opens the envelope; the video ending automatically shows the final plan. Each media panel also has a continue button. Leaving a panel stops playback.
+The ending has one required Listen to our song button, with no Yes/No choice. It starts sing.mp3 from that tap. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows your LETTER text and an optional voice-message.mp3 player. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final plan.
 
 ## One-photo jigsaw game
 
@@ -47,3 +47,11 @@ The invitation starts with four picture-only month choices: January/New Year, De
 In the first date question, only Coffee proceeds. Cola and Mango juice show a puppy sticker and a Try again button. Month art, drinks and stickers are embedded SVG illustrations; you do not need to add image files for them.
 
 Choice feedback waits 6.5 seconds for a correct coffee answer, 6 seconds for a gift choice, and 5 seconds for the other timed choices. The song, envelope and video keep their separate interactive sequence.
+
+## Bigg’s envelope unlock
+
+The correct order is the owner-provided pizza bread + chicken + spaghetti combination. Alternative answers are Baby Back Ribs, Beef Salpicao, and Bacon Cheeseburger, verified from Bigg’s online menu. No prices or ordering/payment features are included. The existing four-piece jigsaw stays earlier in the date flow.
+
+Menu sources:
+- https://biggs-diner.myshopify.com/collections/classic-meals
+- https://biggs-diner.myshopify.com/collections/burgers-sandwiches
