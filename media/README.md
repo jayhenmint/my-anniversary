@@ -39,3 +39,11 @@ No manual cutting is needed. The page divides it into four pieces automatically.
 Use an actual JPEG image, ideally around 1200 pixels on its longest side for quick phone loading. For a PNG or WebP, change JIGSAW_IMAGE near the top of the script in index.html to match the actual filename. Renaming a file extension does not convert an image.
 
 The game includes a full-photo preview and optional number hints. Until the photo is added, the numbered puzzle stays playable. The old photo-1.jpg through photo-4.jpg files are no longer used; existing files have been left alone.
+
+## Birthday and drink puzzles
+
+The invitation starts with four picture-only month choices: January/New Year, December/Christmas, April/summer, and February/Valentine’s Day. Only April/summer opens the two-digit birthday PIN. The correct day is 15. Wrong months or PINs show a puppy sticker and allow retries.
+
+In the first date question, only Coffee proceeds. Cola and Mango juice show a puppy sticker and a Try again button. Month art, drinks and stickers are embedded SVG illustrations; you do not need to add image files for them.
+
+Choice feedback waits 6.5 seconds for a correct coffee answer, 6 seconds for a gift choice, and 5 seconds for the other timed choices. The song, envelope and video keep their separate interactive sequence.
