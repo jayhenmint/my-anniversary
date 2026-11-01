@@ -289,7 +289,7 @@ function paintPuzzle(){
  $('puzzle-preview').disabled=!puzzleReady;
 }
 function pickPuzzle(slot){if(gamesFinished||!Number.isInteger(slot)||slot<0||slot>=PUZZLE_COUNT)return;if(puzzleSelected===null)puzzleSelected=slot;else if(puzzleSelected===slot)puzzleSelected=null;else{[puzzleOrder[puzzleSelected],puzzleOrder[slot]]=[puzzleOrder[slot],puzzleOrder[puzzleSelected]];puzzleMoves++;puzzleSelected=null;if(puzzleOrder.every((v,i)=>v===i))gameDone();}paintPuzzle();}
-function gameDone(){if(gamesFinished)return;gamesFinished=true;$('play-note').textContent='Congratulations! You solved our little picture. ♡';if(!unlocked||!invitationOpened||$('extras').hidden)return;const round=puzzleRound,version=questionVersion;openPopup({popup:'puzzle-complete'},{});afterModal=()=>{if(round===puzzleRound&&version===questionVersion&&gamesFinished){step=GAME_AFTER+1;renderQuestion();}};answerTimer=setTimeout(()=>closeModal(),3000);}
+function gameDone(){if(gamesFinished)return;gamesFinished=true;playClickSound('complete');$('play-note').textContent='Congratulations! You solved our little picture. ♡';if(!unlocked||!invitationOpened||$('extras').hidden)return;const round=puzzleRound,version=questionVersion;openPopup({popup:'puzzle-complete'},{});afterModal=()=>{if(round===puzzleRound&&version===questionVersion&&gamesFinished){step=GAME_AFTER+1;renderQuestion();}};answerTimer=setTimeout(()=>closeModal(),3000);}
 function initPuzzle(){resetPuzzle();const photo=new Image();photo.onload=()=>{puzzleReady=true;$('puzzle-whole').src=JIGSAW_IMAGE;paintPuzzle();};photo.onerror=()=>{puzzleReady=false;paintPuzzle();};photo.src=JIGSAW_IMAGE;}
 $('puzzle-reset').addEventListener('click',resetPuzzle);
 $('puzzle-preview').addEventListener('click',()=>{const panel=$('puzzle-reference');panel.hidden=!panel.hidden;$('puzzle-preview').setAttribute('aria-expanded',String(!panel.hidden));$('puzzle-preview').textContent=panel.hidden?'See whole photo':'Hide whole photo';});
@@ -399,6 +399,30 @@ function openPopup(q,o){
 $('modal-ok').addEventListener('click',closeModal);
 $('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal();});
 document.addEventListener('keydown',e=>{if($('modal').hidden)return;if(e.key==='Escape'){e.preventDefault();closeModal();return;}if(e.key==='Tab'){const items=Array.from($('modal').querySelectorAll('button:not([disabled]),input:not([disabled]),a[href],video[controls],[tabindex="0"]')).filter(el=>el.getClientRects().length);const first=items[0],last=items[items.length-1];if(!first){e.preventDefault();return;}if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+// Small, local Web Audio effects: no sound files or network requests.
+let clickAudio=null;
+function playClickSound(kind='tap'){
+ try{
+  const AudioEngine=window.AudioContext||window.webkitAudioContext;if(!AudioEngine)return;
+  if(!clickAudio||clickAudio.state==='closed')clickAudio=new AudioEngine();
+  const ctx=clickAudio;
+  const play=()=>{
+   if(ctx.state!=='running')return;
+   const notes=kind==='complete'?[523.25,659.25,783.99]:kind==='swap'?[440,660]:kind==='tile'?[620]:kind==='choice'?[740,880]:[560];
+   const now=ctx.currentTime;
+   notes.forEach((frequency,i)=>{const oscillator=ctx.createOscillator(),gain=ctx.createGain(),start=now+i*(kind==='complete'?.12:.045),duration=kind==='complete'?.25:.09;oscillator.type='sine';oscillator.frequency.setValueAtTime(frequency,start);oscillator.frequency.exponentialRampToValueAtTime(frequency*.85,start+duration);gain.gain.setValueAtTime(0,start);gain.gain.linearRampToValueAtTime(.055,start+.008);gain.gain.exponentialRampToValueAtTime(.001,start+duration);oscillator.connect(gain);gain.connect(ctx.destination);oscillator.start(start);oscillator.stop(start+duration+.02);oscillator.onended=()=>{oscillator.disconnect();gain.disconnect();};});
+  };
+  if(ctx.state==='running')play();else ctx.resume().then(play).catch(()=>{});
+ }catch(e){/* The invitation still works when audio is unavailable. */}
+}
+document.addEventListener('click',event=>{
+ const control=event.target instanceof Element?event.target.closest('button,a[href],input[type="radio"],input[type="checkbox"],[role="button"]'):null;
+ if(!control||control.matches(':disabled')||control.getAttribute('aria-disabled')==='true')return;
+ let kind='tap';
+ if(control.classList.contains('puzzle-piece'))kind=puzzleSelected!==null?'swap':'tile';
+ else if(control.matches('input[type="radio"],input[type="checkbox"],.song-rating,.heart-tile,.deliver-drink')||control.closest('#month-choices,.choices'))kind='choice';
+ playClickSound(kind);
+},true);
 let letterDelivered=false;
 $('open-plane').addEventListener('click',()=>{if(letterDelivered)return;letterDelivered=true;$('open-plane').disabled=true;$('open-plane').classList.add('delivered');setTimeout(()=>{$('plane-intro').hidden=true;$('plane-arrival').hidden=false;focusTitle('arrival-title');},matchMedia('(prefers-reduced-motion: reduce)').matches?80:650);});
 $('open-invitation').addEventListener('click',()=>{show('unlock');focusTitle('unlock-title');});

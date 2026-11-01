@@ -18,6 +18,8 @@ On every load or reload, a flying paper airplane carries a little letter. Tap it
 10. A message says “I hope you liked my simple video for you.” Continue to the final invitation question.
 11. Yes/No gets the appropriate happy/sad response and opens the final plan with Save and Share buttons.
 
+Question choices and buttons have gentle synthesized click sounds. Jigsaw pieces use tile/swap sounds, with a short chime on completion. Sounds start only after interaction and require no additional media files; device volume controls their loudness.
+
 ## Files to provide
 
 Keep these paths and filename capitalization exactly as shown:
