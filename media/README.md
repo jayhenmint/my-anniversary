@@ -6,7 +6,7 @@ Live site: https://my-anniversary-inky.vercel.app
 
 1. Guess the birthday month from four pictures. April/summer is correct.
 2. Enter the two-digit birthday PIN: **15**. Wrong answers can retry.
-3. Tap the floating invitation. Coffee is the only correct drink-quiz answer.
+3. Tap the floating invitation. The first question shows three drink pictures and a person sticker. Drag a drink up to the person to give it; alternatively select a drink, then tap the person. Coffee is the only correct answer, and other drinks allow retries.
 4. Choose food and a place, solve the **six-piece jigsaw**, then choose a gift.
 5. The centered song player appears. Play/Pause and the progress slider work; seeking to the end continues immediately.
 6. Rate the song with one of four emojis. Each emoji gets a different reply.
@@ -68,3 +68,7 @@ The original is saved locally in **.video-backups/surprise-original.mp4**. The b
 Edit LETTER in index.html to change the letter text. SONG_RATINGS contains each emoji and its reply. Birthday month illustrations, drinks and puppy stickers are embedded SVGs and need no external picture files.
 
 The collage’s photo controls can embed selected pictures in a saved HTML copy. Keep the media folder beside that copy so the linked song, video and jigsaw can load.
+
+## Drink delivery interaction
+
+The first question uses Pointer Events for actual touch/mouse dragging. The person highlights when a drink is over the drop area. Dropping elsewhere returns the drink without answering. Tap-to-select then tap-the-person, and native keyboard button activation, provide alternatives to dragging. Delivery is animated before the feedback appears. All drink and person illustrations are embedded SVGs; no extra assets are required.
