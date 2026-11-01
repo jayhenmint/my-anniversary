@@ -7,7 +7,7 @@ Live site: https://my-anniversary-inky.vercel.app
 1. Guess the birthday month from four pictures. Feedback appears in a centered puppy-sticker popup. Wrong choices have Try Again. April/summer is correct; its success popup continues to the PIN after a short pause or with the Continue button.
 2. Enter the two-digit birthday PIN: **15**. Wrong answers can retry.
 3. Tap the floating invitation. The first question shows three drink pictures and a person sticker. Drag a drink up to the person to give it; alternatively select a drink, then tap the person. Coffee is the only correct answer, and other drinks allow retries.
-4. Choose food and a place, solve the **six-piece jigsaw**, then choose a gift.
+4. Choose food and a place, solve the **six-piece jigsaw**, then choose a gift. Solving it shows a congratulations popup with the completed photo and advances automatically after three seconds; no Continue button is needed.
 5. The centered song player appears. Play/Pause and the progress slider work; seeking to the end continues immediately.
 6. Rate the song with one of four emojis. Each emoji gets a different reply.
 7. Collect the three heart emojis in a simple nine-tile game to unlock the envelope. Bigg’s is no longer part of the game.
