@@ -1,85 +1,70 @@
-# Your anniversary media
+# Anniversary website
 
-Place your audio and video files in this folder, beside this README:
+Live site: https://my-anniversary-inky.vercel.app
 
-| Choice | Exact filename | Path from index.html |
-| --- | --- | --- |
-| Listen to our song | sing.mp3 | media/sing.mp3 |
-| Reserved voice recording (not used in the envelope) | voice-message.mp3 | media/voice-message.mp3 |
-| Final surprise video | surprise.mp4 | media/surprise.mp4 |
+## Current experience
 
-Project layout:
+1. Guess the birthday month from four pictures. April/summer is correct.
+2. Enter the two-digit birthday PIN: **15**. Wrong answers can retry.
+3. Tap the floating invitation. Coffee is the only correct drink-quiz answer.
+4. Choose food and a place, solve the **six-piece jigsaw**, then choose a gift.
+5. The centered song player appears. Play/Pause and the progress slider work; seeking to the end continues immediately.
+6. Rate the song with one of four emojis. Each emoji gets a different reply.
+7. Collect the three heart emojis in a simple nine-tile game to unlock the envelope. Bigg’s is no longer part of the game.
+8. Open the envelope to read the original letter, ending with “Happy Anniversary, Be! ♡”. It has no voice-message player.
+9. Answer the video-opening question by tapping **Yes, open & play it**. The video cannot advance before real playback finishes.
+10. A message says “I hope you liked my simple video for you.” Continue to the final invitation question.
+11. Yes/No gets the appropriate happy/sad response and opens the final plan with Save and Share buttons.
+
+## Files to provide
+
+Keep these paths and filename capitalization exactly as shown:
 
 ```text
 my-anniversary/
   index.html
   media/
-    README.md
     sing.mp3
-    voice-message.mp3
     surprise.mp4
     game/
       jigsaw.jpg
 ```
 
-Use actual MP3 audio files. Export the video as MP4 with H.264 video and AAC audio for broad mobile compatibility. Renaming an extension does not convert a recording.
+- **Song:** media/sing.mp3
+- **Surprise video:** media/surprise.mp4
+- **Whole jigsaw photo:** media/game/jigsaw.jpg — no manual cutting; the page makes 2 columns × 3 rows.
 
-If your audio uses M4A instead, add the actual M4A files here and update the AUDIO paths near the top of the script in index.html. The SURPRISE_VIDEO setting contains the video path.
+Use real MP3/MP4/JPG formats; changing a filename extension does not convert a file. Portrait and landscape jigsaw photos are preserved with padding when needed. Change AUDIO, SURPRISE_VIDEO or JIGSAW_IMAGE in index.html if your actual filenames differ.
 
-Match filename spelling and capitalization exactly. Files are not included yet; add your own. Keep this media folder next to index.html when copying or hosting the website, including a photo-personalized HTML export. Upload the files to GitHub in media/ when you are ready.
+The previous voice-message.mp3 is no longer used by the envelope. The former four separate matching-game images are also unused.
 
-After the fourth date question, the centered song player appears directly. There is no song question or choice card. She taps Play our song to start sing.mp3. When the song ends, a Bigg’s order quiz appears. Only Pizza bread + chicken + spaghetti opens the envelope. Wrong answers allow retries. The envelope shows the existing LETTER text followed by “Happy Anniversary, Be! ♡”. There is no playback button inside the envelope. After opening the envelope, Open your surprise shows surprise.mp4; the video ending opens the final invitation question.
+## Saving the final picture in Chrome
 
-## One-photo jigsaw game
+**Save details image** starts a direct PNG download named **our-anniversary-plan.png** and reveals the full-size picture.
 
-Add one whole photo at: **media/game/jigsaw.jpg**.
+- In Chrome, open the menu → Downloads and look for that filename.
+- On Android, also check Files → Downloads. It may not appear automatically in Gallery/Photos.
+- On iPhone, choose Save to Files if Chrome prompts for a destination.
+- The visible **Download PNG** link is a second direct download action.
+- You can press and hold the full-size picture and choose Download/Save Image.
+- **Phone save/share menu** is a separate option shown when native image-file sharing is supported.
 
-No manual cutting is needed. The page divides it into four pieces automatically. Tap two pieces to swap them and rebuild the photo. The whole original photo is preserved; rectangular pictures get some padding inside the square puzzle.
+Official Chrome help:
+- Android: https://support.google.com/chrome/answer/95759?co=GENIE.Platform%3DAndroid
+- iPhone/iPad: https://support.google.com/chrome/answer/95759?co=GENIE.Platform%3DiOS
 
-Use an actual JPEG image, ideally around 1200 pixels on its longest side for quick phone loading. For a PNG or WebP, change JIGSAW_IMAGE near the top of the script in index.html to match the actual filename. Renaming a file extension does not convert an image.
+**Share plan image** uses the phone’s native sharing menu where supported. Choose Messenger if offered, or save the PNG and attach it manually. The site does not send messages automatically.
 
-The game includes a full-photo preview and optional number hints. Until the photo is added, the numbered puzzle stays playable. The old photo-1.jpg through photo-4.jpg files are no longer used; existing files have been left alone.
+Only food, destination, gift, date/time placeholder and invitation response appear in the shared picture. Birthday, coffee guess, song rating and game answers are excluded. A legitimate Coffee & sweets food selection remains. No date/time was supplied, so the plan says To be arranged together.
 
-## Birthday and drink puzzles
+## Video optimization and backups
 
-The invitation starts with four picture-only month choices: January/New Year, December/Christmas, April/summer, and February/Valentine’s Day. Only April/summer opens the two-digit birthday PIN. The correct day is 15. Wrong months or PINs show a puppy sticker and allow retries.
+The current video is **6,123,964 bytes**, reduced from 54,726,235 bytes (88.8% smaller), with its full 59.234-second duration and audio. It uses H.264 at 540 × 960, AAC audio and fast-start MP4 metadata.
 
-In the first date question, only Coffee proceeds. Cola and Mango juice show a puppy sticker and a Try again button. Month art, drinks and stickers are embedded SVG illustrations; you do not need to add image files for them.
+The original is saved locally in **.video-backups/surprise-original.mp4**. The backup folder is excluded from Git and Vercel uploads.
 
-Choice feedback waits 6.5 seconds for a correct coffee answer, 6 seconds for a gift choice, and 5 seconds for the other timed choices. The song, envelope and video keep their separate interactive sequence.
+## Personalization
 
-## Bigg’s envelope unlock
+Edit LETTER in index.html to change the letter text. SONG_RATINGS contains each emoji and its reply. Birthday month illustrations, drinks and puppy stickers are embedded SVGs and need no external picture files.
 
-The correct order is the owner-provided pizza bread + chicken + spaghetti combination. Alternative answers are Baby Back Ribs, Beef Salpicao, and Bacon Cheeseburger, verified from Bigg’s online menu. No prices or ordering/payment features are included. The existing four-piece jigsaw stays earlier in the date flow.
-
-Menu sources:
-- https://biggs-diner.myshopify.com/collections/classic-meals
-- https://biggs-diner.myshopify.com/collections/burgers-sandwiches
-
-## Final invitation
-
-After the surprise video, she is asked whether she accepts the invitation. Yes shows a happy puppy sticker, thanks her for accepting, and says I love you. No shows a sad face and a gentle message. Both answers open the final plan and its Save/Share buttons immediately. The plan records the response, and Change my invitation answer lets her revise it.
-
-## Share the anniversary image
-
-The final plan includes only the selected food, destination, gift, date/time placeholder and invitation response. Birthday, coffee-guess, song and game answers are excluded. A legitimate Coffee & sweets food selection still stays in the plan.
-
-Share plan image prepares a PNG and uses the phone’s native file-sharing menu when available. Choose Messenger there if installed and offered. If file sharing is unsupported, or Messenger is not listed, use Save image and attach the PNG manually in Messenger. The website does not automatically send messages or guarantee an installed app appears in the share menu.
-
-The image is generated locally in the browser, with no external image service. A preview is available before sharing. Date and time are marked To be arranged together because no actual schedule has been supplied.
-
-## Video and image-saving compatibility
-
-The surprise player attempts playback when it opens and also has an explicit Play your surprise button. Its continuation button, backdrop and Escape cannot advance before a real played video reaches its ended state. Failed or blocked playback leaves the player visible with retry instructions.
-
-Save details image is visible immediately on the final plan. It starts a PNG download and shows a full-size picture with a Download PNG link. On phones or in-app browsers that do not download automatically, press and hold the picture and choose Save Image/Add to Photos, or open the site in Safari/Chrome. Image creation does not require roundRect, toBlob, or the File constructor.
-
-## Song progress
-
-The song player shows elapsed time, total duration and a seek slider. Drag or use the keyboard to seek to any part. Sliding to the end advances directly to the Bigg’s quiz, even while paused. The slider enables once audio metadata loads. Play/Pause and normal end-of-song progression still work.
-
-## Video compression
-
-The published surprise.mp4 was optimized from 54,726,235 bytes to 6,123,964 bytes (88.8% smaller). The full 59.234-second duration and audio remain. It uses H.264 video at 540 x 960, AAC stereo audio, and fast-start MP4 metadata before the video data.
-
-The original is saved locally at .video-backups/surprise-original.mp4. That folder is excluded from Git and Vercel uploads. FFmpeg verified the full decode, and mobile-size Chrome verified playback and the real ended event.
+The collage’s photo controls can embed selected pictures in a saved HTML copy. Keep the media folder beside that copy so the linked song, video and jigsaw can load.

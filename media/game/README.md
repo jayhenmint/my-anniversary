@@ -1,9 +1,7 @@
-# Jigsaw photo
+# Six-piece jigsaw photo
 
-Add ONE whole JPEG photo here with the exact name:
+Add one whole JPG photo named **jigsaw.jpg** here.
 
-**jigsaw.jpg**
+Full path: media/game/jigsaw.jpg
 
-Full path from index.html: media/game/jigsaw.jpg
-
-The website divides it into four pieces. No manual cutting or upload control is needed. All of your photo stays visible; portrait/landscape images have padding. See ../README.md for more information.
+The website splits it into six pieces (2 columns × 3 rows). Tap two pieces to swap them. A whole-photo preview and optional number hints are available. See ../README.md for the current flow and media instructions.
