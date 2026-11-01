@@ -4,7 +4,7 @@ Live site: https://my-anniversary-inky.vercel.app
 
 ## Current experience
 
-1. Guess the birthday month from four pictures. April/summer is correct.
+1. Guess the birthday month from four pictures. Feedback appears in a centered puppy-sticker popup. Wrong choices have Try Again. April/summer is correct; its success popup continues to the PIN after a short pause or with the Continue button.
 2. Enter the two-digit birthday PIN: **15**. Wrong answers can retry.
 3. Tap the floating invitation. The first question shows three drink pictures and a person sticker. Drag a drink up to the person to give it; alternatively select a drink, then tap the person. Coffee is the only correct answer, and other drinks allow retries.
 4. Choose food and a place, solve the **six-piece jigsaw**, then choose a gift.
