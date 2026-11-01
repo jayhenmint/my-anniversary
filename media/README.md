@@ -63,7 +63,7 @@ Only food, destination, gift, date/time placeholder and invitation response appe
 
 ## Video optimization and backups
 
-The current video is **6,123,964 bytes**, reduced from 54,726,235 bytes (88.8% smaller), with its full 59.234-second duration and audio. It uses H.264 at 540 × 960, AAC audio and fast-start MP4 metadata.
+The current video is **6,256,854 bytes**, reduced from 54,726,235 bytes (88.6% smaller). The CapCut ending screen has been removed; it now ends on the photo at **57.2 seconds**, with a short audio fade-out. It uses H.264 at 540 × 960, AAC audio and fast-start MP4 metadata.
 
 The original is saved locally in **.video-backups/surprise-original.mp4**. The backup folder is excluded from Git and Vercel uploads.
 
