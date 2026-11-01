@@ -55,7 +55,7 @@ Official Chrome help:
 
 **Share plan image** uses the phone’s native sharing menu where supported. Choose Messenger if offered, or save the PNG and attach it manually. The site does not send messages automatically.
 
-Only food, destination, gift, date/time placeholder and invitation response appear in the shared picture. Birthday, coffee guess, song rating and game answers are excluded. A legitimate Coffee & sweets food selection remains. No date/time was supplied, so the plan says To be arranged together.
+Only food, destination, gift, date/time placeholder and invitation response appear in the shared picture. Birthday, coffee guess, song rating and game answers are excluded. A legitimate Coffee & sweets food selection remains. The shared date reads “September • 🌟🌟🌟🌟🌟 • 2026”, using stars as the day hint rather than a written day number. The time is still To be arranged together. The symbols are a subtle hint, not private encryption.
 
 ## Video optimization and backups
 
