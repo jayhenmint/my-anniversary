@@ -4,7 +4,7 @@ Live site: https://my-anniversary-inky.vercel.app
 
 ## Current experience
 
-On every load or reload, a flying paper airplane carries a little letter. Tap it to reveal “Hi Lean, you have an invitation.” Then **slide the mail to the heart** to start the birthday questions. A partial slide returns to the start; tapping alone does not proceed. Keyboard users can use the arrow keys or End. Shared links and exported copies also start with the airplane.
+On every load or reload, a flying paper airplane carries a little letter. Tapping it plays a soft flying whoosh as the airplane flies away to reveal “Hi Lean, you have an invitation.” Then **slide the mail to the heart** to start the birthday questions. A partial slide returns to the start; tapping alone does not proceed. Keyboard users can use the arrow keys or End. Shared links and exported copies also start with the airplane.
 
 1. “Unlock me — Guess my birth month”: guess the birthday month from four pictures. Feedback appears in a centered puppy-sticker popup. Wrong choices have Try Again. April/summer is correct; its success popup continues to the PIN after a short pause or with the Continue button.
 2. Enter birthday passcode **15** using the phone-style 0–9 keypad. Two masked digits submit automatically. Only **15** unlocks the invitation; every wrong code stays locked and shows a retry popup with a descending sound. A correct code gets a success popup and chime. Clear, delete and physical keyboard entry work; wrong answers can retry.
