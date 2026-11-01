@@ -4,6 +4,8 @@ Live site: https://my-anniversary-inky.vercel.app
 
 ## Current experience
 
+On every load or reload, a flying paper airplane carries a little letter. Tap it to reveal “Hi Lean, you have an invitation.” Then tap **Open my invitation** to start the birthday questions. Shared links and exported copies also start with the airplane.
+
 1. Guess the birthday month from four pictures. Feedback appears in a centered puppy-sticker popup. Wrong choices have Try Again. April/summer is correct; its success popup continues to the PIN after a short pause or with the Continue button.
 2. Enter the two-digit birthday PIN: **15**. Wrong answers can retry.
 3. Tap the floating invitation. The first question shows three drink pictures and a person sticker. Drag a drink up to the person to give it; alternatively select a drink, then tap the person. Coffee is the only correct answer, and other drinks allow retries.
